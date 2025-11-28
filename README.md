@@ -4,9 +4,10 @@ R36S konsolu için desteklenen tüm oyunların SEO-optimize edilmiş web uygulam
 
 ## Özellikler
 
-- ✅ **2644+ oyun** - R36S konsolu için desteklenen tüm oyunlar
+- ✅ **15,000+ oyun** - R36S konsolu için desteklenen tüm oyunlar (21 farklı konsol)
 - 🔍 **Gelişmiş Arama** - Oyun adı, konsol ve arama terimlerine göre filtreleme
-- 🎮 **Konsol Filtreleme** - PSP, PlayStation 1, Dreamcast, SNES, Famicom, Arcade
+- 🎮 **Konsol Filtreleme** - PSP, PlayStation 1, Dreamcast, SNES, Famicom, Arcade, Game Boy Advance, NES ve daha fazlası
+- 🎨 **Cyberpunk Tasarım** - Modern ve renkli kullanıcı arayüzü
 - 📱 **Responsive Tasarım** - Mobil ve masaüstü uyumlu
 - 🔎 **SEO Optimizasyonu** - Meta tags, structured data, sitemap, robots.txt
 - ⚡ **Hızlı Performans** - Next.js 14 App Router ile optimize edilmiş
@@ -41,6 +42,47 @@ npm run dev
    npm run build
    npm start
    ```
+
+## Coolify Deployment
+
+### Environment Variables
+
+Coolify'da deployment yaparken aşağıdaki environment variable'ları ekleyin:
+
+```bash
+# Zorunlu (Production için)
+NODE_ENV=production
+
+# Önerilen (Site URL'i için - canonical URLs ve structured data)
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
+
+### Coolify Ayarları
+
+1. **Repository**: `https://github.com/kerembasbug/r36s-game-list`
+2. **Build Command**: `npm install && npm run build`
+3. **Start Command**: `npm start` (veya `node .next/standalone/server.js`)
+4. **Port**: Coolify otomatik olarak `PORT` environment variable'ını kullanır
+5. **Node Version**: `18.x` veya `20.x` (önerilen: `20.x`)
+
+**Önemli**: 
+- `output: 'standalone'` modu `next.config.mjs`'de zaten ayarlı
+- Start command standalone server'ı kullanır ve PORT'u otomatik algılar
+- Coolify PORT environment variable'ını otomatik olarak ayarlar
+
+### Environment Variables Ekleme
+
+Coolify dashboard'unda:
+1. Projenizi seçin
+2. "Environment Variables" sekmesine gidin
+3. Aşağıdaki variable'ları ekleyin:
+
+| Variable | Value | Açıklama |
+|----------|-------|----------|
+| `NODE_ENV` | `production` | Production modu |
+| `NEXT_PUBLIC_SITE_URL` | `https://your-domain.com` | Site URL'i (canonical URLs için) |
+
+**Not**: `NEXT_PUBLIC_SITE_URL` değişkenini kendi domain'inizle değiştirin.
 
 ## SEO Özellikleri
 
