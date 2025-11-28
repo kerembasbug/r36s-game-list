@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import gamesData from '../src/data/games.json';
 
 interface Game {
@@ -14,6 +14,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedConsole, setSelectedConsole] = useState<string>('all');
   const [sortBy, setSortBy] = useState<'name' | 'console'>('name');
+  const [displayedCount, setDisplayedCount] = useState(50);
 
   const games = gamesData as Game[];
 
@@ -83,6 +84,15 @@ export default function Home() {
 
     return filtered;
   }, [games, searchQuery, selectedConsole, sortBy]);
+
+  // Filter değiştiğinde displayedCount'u resetle
+  useEffect(() => {
+    setDisplayedCount(50);
+  }, [searchQuery, selectedConsole, sortBy]);
+
+  // Görüntülenecek oyunlar
+  const displayedGames = filteredGames.slice(0, displayedCount);
+  const hasMore = filteredGames.length > displayedCount;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
@@ -174,26 +184,43 @@ export default function Home() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {filteredGames.map((game, index) => (
-                <div
-                  key={`${game.slug}-${index}`}
-                  className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 border border-gray-200 dark:border-gray-600 hover:shadow-lg transition-shadow"
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-2 line-clamp-2">
-                        {game.name}
-                      </h3>
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900 dark:to-indigo-900 text-blue-800 dark:text-blue-200 text-xs rounded-full font-medium">
-                        <span className="text-base">{getConsoleIcon(game.console)}</span>
-                        <span>{game.console}</span>
-                      </span>
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {displayedGames.map((game, index) => (
+                  <div
+                    key={`${game.slug}-${index}`}
+                    className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 border border-gray-200 dark:border-gray-600 hover:shadow-lg transition-shadow"
+                  >
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-2 line-clamp-2">
+                          {game.name}
+                        </h3>
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900 dark:to-indigo-900 text-blue-800 dark:text-blue-200 text-xs rounded-full font-medium">
+                          <span className="text-base">{getConsoleIcon(game.console)}</span>
+                          <span>{game.console}</span>
+                        </span>
+                      </div>
                     </div>
                   </div>
+                ))}
+              </div>
+              
+              {/* Load More Button */}
+              {hasMore && (
+                <div className="mt-8 text-center">
+                  <button
+                    onClick={() => setDisplayedCount(prev => Math.min(prev + 50, filteredGames.length))}
+                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg shadow-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                  >
+                    Load More Games ({displayedCount.toLocaleString()} / {filteredGames.length.toLocaleString()})
+                  </button>
+                  <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                    Showing {displayedCount.toLocaleString()} of {filteredGames.length.toLocaleString()} games
+                  </p>
                 </div>
-              ))}
-            </div>
+              )}
+            </>
           )}
         </div>
 
