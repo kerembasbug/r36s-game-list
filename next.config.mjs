@@ -10,7 +10,15 @@ const nextConfig = {
     outputFileTracingIncludes: {
       '/': ['./src/data/games.json'],
       '/game/*': ['./src/data/games.json'],
+      '/game/**': ['./src/data/games.json'],
     },
+  },
+  // Ensure all necessary files are included
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = config.externals || [];
+    }
+    return config;
   },
 };
 
