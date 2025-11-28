@@ -5,10 +5,11 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Ensure proper server configuration for Coolify
+  // Include JSON data files in standalone build
   experimental: {
     outputFileTracingIncludes: {
       '/': ['./src/data/games.json'],
+      '/game/*': ['./src/data/games.json'],
     },
   },
 };

@@ -1,16 +1,10 @@
 import { MetadataRoute } from 'next';
-import gamesData from '@/src/data/games.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://r36s-gamelist.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://r36s-gamelist.com';
   
-  const gamePages: MetadataRoute.Sitemap = (gamesData as any[]).slice(0, 1000).map((game) => ({
-    url: `${baseUrl}/game/${game.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }));
-
+  // Limit sitemap to main pages to avoid build issues
+  // Individual game pages are discoverable through the main page
   return [
     {
       url: baseUrl,
@@ -18,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 1,
     },
-    ...gamePages,
   ];
 }
 
