@@ -5,6 +5,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Ensure proper server configuration for Coolify
+  experimental: {
+    outputFileTracingIncludes: {
+      '/': ['./src/data/games.json'],
+    },
+  },
 };
 
 export default nextConfig;

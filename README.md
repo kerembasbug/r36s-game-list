@@ -61,14 +61,15 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com
 
 1. **Repository**: `https://github.com/kerembasbug/r36s-game-list`
 2. **Build Command**: `npm install && npm run build`
-3. **Start Command**: `npm start` (veya `node .next/standalone/server.js`)
-4. **Port**: Coolify otomatik olarak `PORT` environment variable'ını kullanır
+3. **Start Command**: `npm start` (veya `sh start.sh` veya `node .next/standalone/server.js`)
+4. **Port**: Coolify otomatik olarak `PORT` environment variable'ını ayarlar
 5. **Node Version**: `18.x` veya `20.x` (önerilen: `20.x`)
 
 **Önemli**: 
-- `output: 'standalone'` modu `next.config.mjs`'de zaten ayarlı
-- Start command standalone server'ı kullanır ve PORT'u otomatik algılar
+- `output: 'standalone'` modu `next.config.mjs`'de ayarlı
+- `start.sh` script'i PORT'u doğru şekilde ayarlar
 - Coolify PORT environment variable'ını otomatik olarak ayarlar
+- Eğer hala sorun yaşıyorsanız, Start Command olarak direkt `node .next/standalone/server.js` kullanabilirsiniz
 
 ### Environment Variables Ekleme
 
