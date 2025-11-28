@@ -6,8 +6,8 @@
     "dev": "next dev -p 3004",
     "build": "next build",
     "start": "sh start.sh",
-    "start:standalone": "node .next/standalone/server.js",
-    "start:next": "next start",
+    "start:standalone": "PORT=${PORT:-3000} HOSTNAME=${HOSTNAME:-0.0.0.0} node .next/standalone/server.js",
+    "start:next": "next start -p ${PORT:-3000} -H ${HOSTNAME:-0.0.0.0}",
     "lint": "next lint",
     "parse": "node parse-games.js"
   },
