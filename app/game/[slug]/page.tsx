@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import gamesData from '@/src/data/games.json';
+import gamesData from '../../../src/data/games.json';
 import type { Metadata } from 'next';
 
 interface Game {
