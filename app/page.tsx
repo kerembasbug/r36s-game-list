@@ -143,6 +143,15 @@ export default function Home() {
               <span>🛒</span>
               <span>R36H.com</span>
             </a>
+            <a
+              href="https://amzn.to/4osrBbx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-black text-white font-bold rounded-lg shadow-lg hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-sm md:text-base border-2 border-yellow-400"
+            >
+              <span className="text-yellow-400 font-bold">A</span>
+              <span>Amazon</span>
+            </a>
           </div>
         </div>
       </div>
