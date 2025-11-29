@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: [],
     },
-    sitemap: 'https://r36s-gamelist.com/sitemap.xml',
+    sitemap: 'https://r36sgamelist.com/sitemap.xml',
   };
 }
 

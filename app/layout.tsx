@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://r36s-gamelist.com',
+    canonical: 'https://r36sgamelist.com',
   },
 };
 
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="canonical" href="https://r36s-gamelist.com" />
+        <link rel="canonical" href="https://r36sgamelist.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -43,10 +43,10 @@ export default function RootLayout({
               '@type': 'WebSite',
               name: 'R36S Game List',
               description: 'Complete list of all games supported on the R36S console',
-              url: 'https://r36s-gamelist.com',
+              url: 'https://r36sgamelist.com',
               potentialAction: {
                 '@type': 'SearchAction',
-                target: 'https://r36s-gamelist.com?search={search_term_string}',
+                target: 'https://r36sgamelist.com?search={search_term_string}',
                 'query-input': 'required name=search_term_string',
               },
             }),
