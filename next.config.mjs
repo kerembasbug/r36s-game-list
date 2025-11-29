@@ -16,6 +16,14 @@ const nextConfig = {
       '/game/*': ['./src/data/games.json'],
       '/game/**': ['./src/data/games.json'],
     },
+    // Ensure static files are properly included in standalone build
+    outputFileTracingExcludes: {
+      '*': [
+        'node_modules/@swc/core-linux-x64-gnu',
+        'node_modules/@swc/core-linux-x64-musl',
+        'node_modules/@esbuild/linux-x64',
+      ],
+    },
   },
   // Ensure all necessary files are included
   webpack: (config, { isServer }) => {
