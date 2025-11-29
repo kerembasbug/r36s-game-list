@@ -227,17 +227,19 @@ export default function Home() {
                     key={`${game.slug}-${index}`}
                     className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-4 border border-gray-200 dark:border-gray-600 hover:shadow-lg transition-shadow"
                   >
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-2 line-clamp-2">
-                          {game.name}
-                        </h3>
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900 dark:to-indigo-900 text-blue-800 dark:text-blue-200 text-xs rounded-full font-medium">
-                          <span className="text-base">{getConsoleIcon(game.console)}</span>
-                          <span>{game.console}</span>
-                        </span>
+                    <a href={`/game/${game.slug}`} className="block">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <div className="font-semibold text-gray-900 dark:text-white text-sm mb-2 line-clamp-2">
+                            {game.name}
+                          </div>
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900 dark:to-indigo-900 text-blue-800 dark:text-blue-200 text-xs rounded-full font-medium">
+                            <span className="text-base">{getConsoleIcon(game.console)}</span>
+                            <span>{game.console}</span>
+                          </span>
+                        </div>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 ))}
               </div>
@@ -503,9 +505,9 @@ export default function Home() {
 
               {/* CTA Section */}
               <div className="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-center shadow-2xl">
-                <h3 className="text-3xl font-bold text-white mb-4">
+                <h2 className="text-3xl font-bold text-white mb-4">
                   Ready to Start Your Retro Gaming Journey?
-                </h3>
+                </h2>
                 <p className="text-xl text-blue-100 mb-8">
                   Get your R36S console today and experience the ultimate retro gaming collection!
                 </p>
