@@ -111,6 +111,42 @@ export default function Home() {
         </div>
       </header>
 
+      {/* CTA Bar */}
+      <div className="bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 border-b-2 border-purple-500/50 shadow-lg">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-wrap justify-center items-center gap-4">
+            <span className="text-white font-semibold text-sm md:text-base">Shop R36S Console:</span>
+            <a
+              href="https://r36s.com.au"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg shadow-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-sm md:text-base"
+            >
+              <span>🇦🇺</span>
+              <span>R36S Australia</span>
+            </a>
+            <a
+              href="https://r36shandheld.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-purple-500 to-pink-600 text-white font-bold rounded-lg shadow-lg hover:from-purple-600 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-sm md:text-base"
+            >
+              <span>🌍</span>
+              <span>R36S Global</span>
+            </a>
+            <a
+              href="https://r36h.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold rounded-lg shadow-lg hover:from-orange-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-sm md:text-base"
+            >
+              <span>🛒</span>
+              <span>R36H.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* Filters */}
       <div className="container mx-auto px-4 py-6">
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-6">
