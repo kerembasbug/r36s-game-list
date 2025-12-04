@@ -320,11 +320,11 @@ export default function Home() {
 
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 md:p-12 space-y-6 text-gray-700 dark:text-gray-300">
               <p className="text-lg leading-relaxed">
-                The R36S represents the pinnacle of retro gaming handheld consoles, combining cutting-edge hardware with an extensive library of classic games. This remarkable device has captured the hearts of retro gaming enthusiasts worldwide by offering an authentic, portable gaming experience that brings back the golden age of video games. With support for over 15,000 games across 21 different console platforms, the R36S stands as a testament to the enduring appeal of classic gaming.
+                {t.seoDescription1}
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                What Makes the R36S Special?
+                {t.whatMakesSpecial}
               </h3>
               
               <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -334,9 +334,9 @@ export default function Home() {
                     alt="R36S Console Design" 
                     className="w-full h-48 object-cover rounded-lg mb-4"
                   />
-                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Ergonomic Design</h4>
+                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{t.ergonomicDesign}</h4>
                   <p className="text-gray-700 dark:text-gray-300">
-                    The R36S features a carefully crafted design that prioritizes comfort during extended gaming sessions. Its ergonomic shape fits naturally in your hands, while the strategically placed buttons ensure responsive gameplay for hours on end.
+                    {t.ergonomicText}
                   </p>
                 </div>
                 
@@ -346,27 +346,27 @@ export default function Home() {
                     alt="R36S Display Quality" 
                     className="w-full h-48 object-cover rounded-lg mb-4"
                   />
-                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Crystal Clear Display</h4>
+                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{t.crystalDisplay}</h4>
                   <p className="text-gray-700 dark:text-gray-300">
-                    Experience your favorite retro games in stunning clarity with the R36S's high-resolution display. Every pixel, every sprite, and every detail of classic games comes to life with vibrant colors and sharp definition.
+                    {t.crystalText}
                   </p>
                 </div>
               </div>
 
               <p className="text-lg leading-relaxed">
-                The R36S console is more than just a gaming device; it's a time machine that transports you back to the golden era of video gaming. Whether you're reliving childhood memories or discovering classic titles for the first time, the R36S delivers an unparalleled retro gaming experience. The console's powerful emulation capabilities ensure that games run smoothly and authentically, preserving the original gameplay mechanics, graphics, and sound that made these titles legendary.
+                {t.seoDescription1}
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                Comprehensive Console Support
+                {t.supportedConsoles}
               </h3>
 
               <p className="text-lg leading-relaxed">
-                One of the most impressive features of the R36S is its extensive console compatibility. The device supports an incredible range of gaming platforms, from the 8-bit era of the Nintendo Entertainment System (NES) and Famicom to more advanced systems like the PlayStation Portable (PSP), Dreamcast, and Nintendo 64. With over 4,000 NES games, nearly 3,000 Mega Drive titles, more than 1,900 Capcom Play System II games, and over 1,000 Game Boy Advance titles, the R36S offers something for every retro gaming enthusiast.
+                {t.comprehensiveSupportText}
               </p>
 
               <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-6 my-8">
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Supported Console Highlights</h4>
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{t.seoListTitle}</h4>
                 <div className="grid md:grid-cols-3 gap-4">
                   <div>
                     <h5 className="font-semibold text-gray-900 dark:text-white mb-2">8-Bit & 16-Bit Era</h5>
@@ -399,11 +399,11 @@ export default function Home() {
               </div>
 
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                Arcade Gaming Excellence
+                {t.arcadeExcellence}
               </h3>
 
               <p className="text-lg leading-relaxed">
-                The R36S truly shines when it comes to arcade game emulation. With 358 dedicated arcade titles, plus extensive support for Capcom Play System I (37 games) and Capcom Play System II (1,927 games), arcade enthusiasts can enjoy authentic arcade experiences from the comfort of their handheld device. From classic fighting games like Street Fighter to shoot-em-ups and puzzle games, the R36S brings the arcade experience home.
+                {t.arcadeText}
               </p>
 
               <div className="my-8 rounded-lg overflow-hidden shadow-lg">
@@ -415,69 +415,69 @@ export default function Home() {
               </div>
 
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                Technical Specifications and Performance
+                {t.technicalSpecs}
               </h3>
 
               <p className="text-lg leading-relaxed">
-                The R36S is built with performance in mind, featuring a powerful processor that handles even the most demanding retro games with ease. The console's advanced emulation technology ensures accurate game reproduction, maintaining the original timing, physics, and gameplay mechanics that made these games special. The device supports save states, allowing you to save your progress at any point in any game, a feature that modernizes the retro gaming experience without compromising authenticity.
+                {t.technicalText}
               </p>
 
               <p className="text-lg leading-relaxed">
-                Battery life is another standout feature of the R36S. The console is designed for extended gaming sessions, with a battery that can last for hours of continuous play. This makes it perfect for long commutes, travel, or simply enjoying extended gaming sessions at home. The device also features fast charging capabilities, ensuring you spend more time gaming and less time waiting for your device to charge.
+                {t.batteryText}
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                User Experience and Interface
+                {t.userExperience}
               </h3>
 
               <p className="text-lg leading-relaxed">
-                Navigating through thousands of games is made effortless with the R36S's intuitive user interface. The console features a well-organized menu system that allows you to browse games by console, search for specific titles, and access your favorite games quickly. The interface is designed to be user-friendly, whether you're a retro gaming veteran or new to classic games.
+                {t.userExperienceText}
               </p>
 
               <div className="bg-gradient-to-r from-green-50 to-teal-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-6 my-8">
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Key Features</h4>
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{t.keyFeatures}</h4>
                 <ul className="grid md:grid-cols-2 gap-3 text-gray-700 dark:text-gray-300">
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
-                    <span>Pre-loaded with 15,000+ games</span>
+                    <span>{t.preloaded}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
-                    <span>Save states for any game</span>
+                    <span>{t.saveStates}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
-                    <span>HDMI output for TV gaming</span>
+                    <span>{t.hdmiOutput}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
-                    <span>Expandable storage support</span>
+                    <span>{t.expandableStorage}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
-                    <span>Multiple display scaling options</span>
+                    <span>{t.displayScaling}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
-                    <span>Customizable controls</span>
+                    <span>{t.customizableControls}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
-                    <span>Fast boot and loading times</span>
+                    <span>{t.fastBoot}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
-                    <span>Regular firmware updates</span>
+                    <span>{t.firmwareUpdates}</span>
                   </li>
                 </ul>
               </div>
 
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                The Perfect Gift for Retro Gaming Fans
+                {t.perfectGift}
               </h3>
 
               <p className="text-lg leading-relaxed">
-                Whether you're shopping for yourself or looking for the perfect gift for a retro gaming enthusiast, the R36S is an excellent choice. Its combination of extensive game library, excellent build quality, and user-friendly interface makes it appealing to gamers of all ages. For those who grew up with these classic games, the R36S offers a nostalgic trip down memory lane. For younger gamers, it provides an opportunity to experience the games that shaped the industry.
+                {t.perfectGiftText}
               </p>
 
               <div className="my-8 rounded-lg overflow-hidden shadow-lg">
@@ -489,36 +489,36 @@ export default function Home() {
               </div>
 
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                Why Choose the R36S?
+                {t.whyChoose}
               </h3>
 
               <p className="text-lg leading-relaxed">
-                In a market filled with retro gaming options, the R36S distinguishes itself through its comprehensive game library, reliable performance, and excellent value. Unlike other handheld consoles that may support only a handful of systems, the R36S offers true multi-platform support, allowing you to enjoy games from virtually every major retro gaming system in one device. This eliminates the need for multiple consoles and provides a unified gaming experience.
+                {t.whyChooseText1}
               </p>
 
               <p className="text-lg leading-relaxed">
-                The R36S also stands out for its commitment to game preservation. By supporting such a wide range of consoles and games, the device helps keep classic gaming history alive. Many of these games are no longer easily accessible through official channels, making the R36S an important tool for game preservation and accessibility.
+                {t.whyChooseText2}
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                Getting Started with Your R36S
+                {t.gettingStarted}
               </h3>
 
               <p className="text-lg leading-relaxed">
-                Setting up the R36S is straightforward and user-friendly. The console comes pre-loaded with thousands of games, so you can start playing immediately after unboxing. The intuitive interface makes it easy to navigate through the extensive game library, and the console's documentation provides clear instructions for any advanced features you might want to explore.
+                {t.gettingStartedText1}
               </p>
 
               <p className="text-lg leading-relaxed">
-                For those who want to expand their game library, the R36S supports additional game files through expandable storage. This means you can add even more games to your collection, making the console's library virtually limitless. The device's active community and regular firmware updates ensure that you'll always have access to the latest features and improvements.
+                {t.gettingStartedText2}
               </p>
 
               {/* CTA Section */}
               <div className="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-center shadow-2xl">
                 <h2 className="text-3xl font-bold text-white mb-4">
-                  Ready to Start Your Retro Gaming Journey?
+                  {t.readyToStart}
                 </h2>
                 <p className="text-xl text-blue-100 mb-8">
-                  Get your R36S console today and experience the ultimate retro gaming collection!
+                  {t.readyToStartSubtitle}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
@@ -527,7 +527,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                   >
-                    Shop at R36S Handheld
+                    {t.shopAt} R36S Handheld
                   </a>
                   <a
                     href="https://r36s.com.au"
@@ -535,11 +535,11 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                   >
-                    Shop at R36S Australia
+                    {t.shopAt} R36S Australia
                   </a>
                 </div>
                 <p className="text-blue-100 mt-6 text-sm">
-                  Free shipping available • 30-day money-back guarantee • Customer support included
+                  {t.freeShipping}
                 </p>
               </div>
             </div>
