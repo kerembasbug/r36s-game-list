@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { LanguageProvider } from '../lib/i18n/LanguageContext';
+import { locales } from '../lib/i18n/locales';
 
 export const metadata: Metadata = {
   title: 'R36S Game List - Complete List of Supported Games',
@@ -23,6 +25,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://r36sgamelist.com',
+    languages: Object.fromEntries(
+      locales.map(locale => [locale, `https://r36sgamelist.com?lang=${locale}`])
+    ),
   },
 };
 
@@ -35,6 +40,16 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://r36sgamelist.com" />
+        {/* Hreflang tags for SEO */}
+        {locales.map(locale => (
+          <link
+            key={locale}
+            rel="alternate"
+            hrefLang={locale}
+            href={`https://r36sgamelist.com?lang=${locale}`}
+          />
+        ))}
+        <link rel="alternate" hrefLang="x-default" href="https://r36sgamelist.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -44,6 +59,7 @@ export default function RootLayout({
               name: 'R36S Game List',
               description: 'Complete list of all games supported on the R36S console',
               url: 'https://r36sgamelist.com',
+              inLanguage: locales,
               potentialAction: {
                 '@type': 'SearchAction',
                 target: 'https://r36sgamelist.com?search={search_term_string}',
@@ -53,7 +69,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   );
 }

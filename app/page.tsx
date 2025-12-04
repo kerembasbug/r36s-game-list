@@ -2,6 +2,8 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import gamesData from '../src/data/games.json';
+import { useLanguage } from '../lib/i18n/LanguageContext';
+import LanguageSelector from './components/LanguageSelector';
 
 interface Game {
   name: string;
@@ -11,6 +13,7 @@ interface Game {
 }
 
 export default function Home() {
+  const { t, locale } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedConsole, setSelectedConsole] = useState<string>('all');
   const [sortBy, setSortBy] = useState<'name' | 'console'>('name');
@@ -99,14 +102,20 @@ export default function Home() {
       {/* Header */}
       <header className="bg-gradient-to-r from-purple-900 via-blue-900 to-cyan-900 sticky top-0 z-50 shadow-2xl border-b-2 border-cyan-500/50">
         <div className="container mx-auto px-4 py-8">
-          <h1 className="text-5xl md:text-6xl font-black text-center mb-3 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(0,255,255,0.5)] tracking-tight">
-            R36S GAME LIST
-          </h1>
+          <div className="flex justify-between items-start mb-4">
+            <div className="flex-1"></div>
+            <h1 className="flex-1 text-5xl md:text-6xl font-black text-center bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(0,255,255,0.5)] tracking-tight">
+              {t.title}
+            </h1>
+            <div className="flex-1 flex justify-end">
+              <LanguageSelector />
+            </div>
+          </div>
           <div className="flex justify-center mb-2">
             <div className="h-1 w-32 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
           </div>
           <p className="text-center text-cyan-200 text-lg font-medium drop-shadow-[0_0_10px_rgba(0,255,255,0.3)]">
-            Complete list of <span className="text-cyan-400 font-bold">{games.length.toLocaleString()}</span> games supported on the R36S console
+            {t.subtitle} <span className="text-cyan-400 font-bold">{games.length.toLocaleString()}</span> {t.gamesCount}
           </p>
         </div>
       </header>
@@ -115,7 +124,7 @@ export default function Home() {
       <div className="bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 border-b-2 border-purple-500/50 shadow-lg">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-wrap justify-center items-center gap-4">
-            <span className="text-white font-semibold text-sm md:text-base">Shop R36S Console:</span>
+            <span className="text-white font-semibold text-sm md:text-base">{t.shopConsole}</span>
             <a
               href="https://r36s.com.au"
               target="_blank"
@@ -123,7 +132,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg shadow-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-sm md:text-base"
             >
               <span>🇦🇺</span>
-              <span>R36S Australia</span>
+              <span>{t.australia}</span>
             </a>
             <a
               href="https://r36shandheld.com"
@@ -132,7 +141,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-purple-500 to-pink-600 text-white font-bold rounded-lg shadow-lg hover:from-purple-600 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-sm md:text-base"
             >
               <span>🌍</span>
-              <span>R36S Global</span>
+              <span>{t.global}</span>
             </a>
             <a
               href="https://r36h.com"
@@ -142,15 +151,6 @@ export default function Home() {
             >
               <span>🛒</span>
               <span>R36H.com</span>
-            </a>
-            <a
-              href="https://amzn.to/4osrBbx"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-black text-white font-bold rounded-lg shadow-lg hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-sm md:text-base border-2 border-yellow-400"
-            >
-              <span className="text-yellow-400 font-bold">A</span>
-              <span>Amazon</span>
             </a>
           </div>
         </div>
@@ -163,14 +163,14 @@ export default function Home() {
             {/* Search */}
             <div>
               <label htmlFor="search" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Search Games
+                {t.searchGames}
               </label>
               <input
                 id="search"
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Enter game name..."
+                placeholder={t.enterGameName}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
             </div>
@@ -178,7 +178,7 @@ export default function Home() {
             {/* Console Filter */}
             <div>
               <label htmlFor="console" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Select Console
+                {t.selectConsole}
               </label>
                   <select
                     id="console"
@@ -186,7 +186,7 @@ export default function Home() {
                     onChange={(e) => setSelectedConsole(e.target.value)}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                   >
-                    <option value="all">🎮 All Consoles</option>
+                    <option value="all">🎮 {t.allConsoles}</option>
                     {consoles.map(console => (
                       <option key={console} value={console}>
                         {getConsoleIcon(console)} {console}
@@ -198,7 +198,7 @@ export default function Home() {
             {/* Sort */}
             <div>
               <label htmlFor="sort" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Sort By
+                {t.sortBy}
               </label>
               <select
                 id="sort"
@@ -206,17 +206,17 @@ export default function Home() {
                 onChange={(e) => setSortBy(e.target.value as 'name' | 'console')}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               >
-                <option value="name">By Name</option>
-                <option value="console">By Console</option>
+                <option value="name">{t.byName}</option>
+                <option value="console">{t.byConsole}</option>
               </select>
             </div>
           </div>
 
           {/* Results Count */}
           <div className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-            <strong>{filteredGames.length.toLocaleString()}</strong> games found
+            <strong>{filteredGames.length.toLocaleString()}</strong> {t.gamesFound}
             {selectedConsole !== 'all' && ` (${selectedConsole})`}
-            {searchQuery && ` - search for "${searchQuery}"`}
+            {searchQuery && ` - ${t.searchFor} "${searchQuery}"`}
           </div>
         </div>
 
@@ -225,7 +225,7 @@ export default function Home() {
           {filteredGames.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-500 dark:text-gray-400 text-lg">
-                No games found matching your criteria.
+                {t.noGamesFound}
               </p>
             </div>
           ) : (
@@ -260,10 +260,10 @@ export default function Home() {
                     onClick={() => setDisplayedCount(prev => Math.min(prev + 50, filteredGames.length))}
                     className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg shadow-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
                   >
-                    Load More Games ({displayedCount.toLocaleString()} / {filteredGames.length.toLocaleString()})
+                    {t.loadMore} ({displayedCount.toLocaleString()} / {filteredGames.length.toLocaleString()})
                   </button>
                   <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-                    Showing {displayedCount.toLocaleString()} of {filteredGames.length.toLocaleString()} games
+                    {t.showing} {displayedCount.toLocaleString()} {t.of} {filteredGames.length.toLocaleString()} {t.games}
                   </p>
                 </div>
               )}
@@ -274,14 +274,14 @@ export default function Home() {
         {/* SEO Content */}
         <div className="mt-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            R36S Game List - Supported Games
+            {t.seoTitle}
           </h2>
           <div className="prose dark:prose-invert max-w-none">
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              The R36S retro gaming console brings thousands of classic games to a single device. In this list, you can find all games supported on the R36S console.
+              {t.seoDescription1}
             </p>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              The R36S console offers game support for the following consoles:
+              {t.seoDescription2}
             </p>
             <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2">
               {consoles.map(console => {
@@ -289,13 +289,13 @@ export default function Home() {
                 return (
                   <li key={console} className="flex items-center gap-2">
                     <span className="text-xl">{getConsoleIcon(console)}</span>
-                    <strong>{console}</strong>: {count.toLocaleString()} games
+                    <strong>{console}</strong>: {count.toLocaleString()} {t.games}
                   </li>
                 );
               })}
             </ul>
             <p className="text-gray-700 dark:text-gray-300 mt-4">
-              You can filter games by console, name, or search terms. The most comprehensive resource for R36S game list searches.
+              {t.seoConclusion}
             </p>
           </div>
         </div>
@@ -306,7 +306,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-8">
-              The Ultimate Retro Gaming Experience: R36S Console
+              {t.detailedTitle}
             </h2>
             
             {/* Hero Image */}
@@ -551,7 +551,7 @@ export default function Home() {
       <footer className="bg-gray-800 text-white py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
           <p className="text-gray-400">
-            R36S Game List - {new Date().getFullYear()} | Complete list of games supported on the R36S console
+            R36S Game List - {new Date().getFullYear()} | {t.footerText}
           </p>
         </div>
       </footer>

@@ -5,6 +5,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // i18n Configuration - Language support
+  // Note: We use client-side i18n, but this helps with SEO
+  i18n: {
+    locales: ['en', 'de', 'es', 'fr', 'it', 'pt', 'ja', 'ar', 'nl', 'sv', 'da', 'no', 'ko', 'tr', 'zh'],
+    defaultLocale: 'en',
+    localeDetection: true,
+  },
   // Compression and optimization
   compress: true,
   // Optimize bundle size

@@ -19,6 +19,34 @@ export function middleware(request: NextRequest) {
   response.headers.set('X-XSS-Protection', '1; mode=block');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
 
+  // Add Content-Language header based on geolocation
+  const country = request.headers.get('cf-ipcountry') || 
+                  request.headers.get('x-vercel-ip-country') || 
+                  request.geo?.country ||
+                  'US';
+  
+  // Map country to language (simplified, can be expanded)
+  const geoToLang: Record<string, string> = {
+    US: 'en', GB: 'en', CA: 'en', AU: 'en',
+    DE: 'de', AT: 'de', CH: 'de',
+    ES: 'es', MX: 'es', AR: 'es',
+    FR: 'fr', BE: 'fr',
+    IT: 'it',
+    PT: 'pt', BR: 'pt',
+    JP: 'ja',
+    SA: 'ar', AE: 'ar',
+    NL: 'nl',
+    SE: 'sv',
+    DK: 'da',
+    NO: 'no',
+    KR: 'ko',
+    TR: 'tr',
+    CN: 'zh', TW: 'zh', HK: 'zh',
+  };
+
+  const lang = geoToLang[country] || 'en';
+  response.headers.set('Content-Language', lang);
+
   return response;
 }
 
